@@ -205,9 +205,9 @@ def main():
         # PoMA Debugging/Testing session.
         run_debug_session(client, commands, logger, args.assume_yes)
     except KeyboardInterrupt:
-        logger.error("\n\nProgram interrupted by user.")
+        logger.error("Program interrupted by user.")
     except Exception as e:
-        logger.error(f"\nError during session: '{e}'.")
+        logger.error(f"Error during session: '{e}'.")
     finally:
         client.close()
 
