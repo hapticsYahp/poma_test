@@ -36,7 +36,7 @@ Specifying the command file (`.tpoma`):
 Specifying the PoMA server (IP/Port):
 
 ```bash
-./poma_test.py -ip 127.0.0.1 -p 3333
+./poma_test.py -i 127.0.0.1 -p 3333
 ```
 
 ### Options
