@@ -18,7 +18,7 @@ in `.tpoma` configuration files.
 Basic Execution (default values):
 
 ```bash
-python poma_test.py
+python3 poma_test.py
 ```
 
 or
