@@ -123,7 +123,6 @@ def run_debug_session(client: PomaDebugClient, commands: List[TimedCommand], log
         return
 
     logger.info(f"Starting a debugging session with {len(commands)} commands.")
-    logger.blank_line()
 
     start_time = time.time()
     for i, cmd in enumerate(commands, 1):
@@ -132,12 +131,12 @@ def run_debug_session(client: PomaDebugClient, commands: List[TimedCommand], log
             logger.error("Connection lost. Stopping session.")
             break
 
+        logger.blank_line()
+
         # Wait until the command timestamp.
         elapsed = time.time() - start_time
         wait_time = cmd.timestamp - elapsed
         if wait_time > 0:
-            if i > 1:
-                logger.blank_line()
             logger.waiting(f"Waiting {wait_time:.2f}s to send the next command (ts={cmd.timestamp:.2f}s)...")
             time.sleep(wait_time)
 
