@@ -145,6 +145,7 @@ def run_debug_session(client: PomaDebugClient, commands: List[TimedCommand], log
         logger.section(f"command {i}/{len(commands)} (t={elapsed:.2f}s)")
 
         # Send command.
+        send_time = time.time()
         if not client.send_command(cmd.command):
             if not assume_yes:
                 logger.warning("Error sending command. ¿Continue? ([Y]/n)")
@@ -157,6 +158,8 @@ def run_debug_session(client: PomaDebugClient, commands: List[TimedCommand], log
 
         # Wait response.
         client.receive_response()
+        received_time = time.time() - send_time
+        logger.waiting(f"Response received after {received_time:.2f}s")
 
     total_time = time.time() - start_time
     logger.separator()
